@@ -1,0 +1,26 @@
+include ./architecture/modules/head/head.pug
+body.body
+    include ./architecture/modules/header/header.pug
+    main.page
+        h1|Heading1
+        h2.type1|Heading2
+        h2.type2|Heading2
+        h3.type1|Heading3
+        h3.type2|Heading3
+        h3.type3|Heading3
+        p|Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde est velit debitis odit quia modi molestiae veniam architecto non. Numquam delectus dolorum quo consequuntur esse at laborum vitae odit quia!
+        p.smoll|Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde est velit debitis odit quia modi molestiae veniam architecto non. Numquam delectus dolorum quo consequuntur esse at laborum vitae odit quia!
+        a(href="#").link|Link 
+        .item
+            svg.svg-ilustrations_1-dims
+                use(xLink:href="./img/icons/icons-complex.svg#ilustrations_1")
+                    
+        .item
+        svg.svg-facebook_negative-dims
+            use(xLink:href="./img/icons/icons-simple.svg#facebook_negative")
+                
+        .item
+        .item
+    include ./architecture/modules/footer/footer.pug
+    script(src='js/app.min.js')
+    

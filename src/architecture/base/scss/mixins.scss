@@ -1,0 +1,76 @@
+@import './variables';
+//Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff2") format("woff2"), url("../fonts/#{$file_name}.woff") format("woff");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+//Адаптивное свойство
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		//Только если меньше контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+		}
+	} @else if $type==2 {
+		//Только если больше контейнера
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else {
+		//Всегда
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+//Адаптивное свойство до
+@mixin adaptiv-value-to($property, $startSize, $minSize, $minWidth) {
+	$addSize: $startSize - $minSize;
+	//#{$property}: $minSize + px;
+	@media (min-width: #{$minWidth + px}) {
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth}))));
+	}
+}
+
+
+// Адаптивная сетка
+@mixin row($values, $alignItems, $wrap: wrap) {
+    display: flex;
+    flex-wrap: $wrap;
+    @if $values == "jcsb" {
+        &_jcsb{
+            justify-content: space-between;
+            align-items: $alignItems;
+        }
+    } @else if($values == "jcc"){
+        &_jcc{
+            justify-content: center;}
+            align-items: $alignItems;
+
+    } @else if($values == "jcfs"){
+        &_jcfs{
+            justify-content: flex-start;}
+            align-items: $alignItems;
+    } @else if($values == "jcfe"){
+        &_jcfe{
+            justify-content: flex-end;}
+            align-items: $alignItems;
+
+    }
+}
+
+// Адаптивная колонка
+
+@mixin column($column){
+    flex: 0 1 calc(((($maxWidthContainer / 12) * $column) / $maxWidthContainer) * 100%);
+}
+
+// Заголовки
+
+

@@ -1,0 +1,39 @@
+$sprite_simple_24: 
+    "facebook_negative" 24px 24px,
+    "instagram_negative" 24px 24px,
+    "youtube_negative" 24px 24px;
+
+@each $sprite, $width, $height in $sprite_simple_24{
+    .svg-#{$sprite}-icon{
+        width: $width;
+        height: $height;
+    }
+}
+
+$sprite_simple_30: 
+    "bulding" 30px 30px,
+    "calendar" 30px 30px,
+    "google" 30px 30px,
+    "watsapp" 30px 30px;
+
+@each $sprite, $width, $height in $sprite_simple_30{
+    .svg-#{$sprite}-icon{
+        width: $width;
+        height: $height;
+    }
+}
+
+$sprite_complex: 
+    "ilustrations_1" 109.4px 171.85px,
+    "ilustrations_2" 98.49px 160.07px,
+    "ilustrations_3" 173.21px 175px,
+    "ilustrations_4" 136px 189.53px,
+    "ilustrations_5" 160.09px 175px,
+    "ilustrations_6" 159.24px 183.91px;
+
+@each $sprite, $width, $height in $sprite_complex{
+    .svg-#{$sprite}-icon{
+        width: $width;
+        height: $height;
+    }
+}
